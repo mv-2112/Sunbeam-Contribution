@@ -1,9 +1,6 @@
 # Sunbeam-Contribution
 Notes on how to setup a machine and contribute to the Sunbeam project
 
-Contributing to Sunbeam
-
-
 ## Setup
 
 ### Fresh ubuntu imstall
@@ -27,11 +24,25 @@ juju bootstrap microk8s
 
 You will need an editor, VS Code is not bad at all
 
-```snap install code --classic```
+```bash
+snap install code --classic
+```
 
 Tox and Skopeo will be needed for later
 
-```sudo apt install -y tox skopeo```
+```bash
+sudo apt install -y tox skopeo
+```
+
+Docker is handy for Rock creation
+
+```bash
+sudo snap install docker
+sudo groupadd docker
+sudo usermod -a -G docker $USER
+sudo chown root:docker /var/run/docker.sock
+newgrp docker
+```
 
 
 ### Git setup
