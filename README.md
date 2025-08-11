@@ -144,7 +144,7 @@ You can obtain the files for the dashboard with the following:-
 ```bash
 curl -skL $(apt-get download -o Dir::Cache::archives="./" --print-uris python3-cloudkitty-dashboard/noble | awk -F\' '{print $2}' ) | dpkg-deb -c /dev/stdin | grep "openstack_dashboard" | grep -v "^d" | awk '{ print $6 }' | xargs -I{} basename {}
 ```
-
+Once your pull request is accepted you can watch it build here: https://github.com/canonical/ubuntu-openstack-rocks/actions
 
 
 ## Charms 
