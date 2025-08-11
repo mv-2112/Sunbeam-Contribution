@@ -163,7 +163,11 @@ sudo microk8s enable ingress
 ```bash
 juju deploy ./cloudkitty-k8s_amd64.charm  --trust --resource cloudkitty-api-image=ghcr.io/canonical/cloudkitty-api:2025.1 --resource cloudkitty-processor-image=ghcr.io/canonical/cloudkitty-processor:2025.1
 ```
+You can now run your charm and debug. Make changes, rerun ```charmcraft pack``` as needed and refresh with:
 
+```bash
+juju refresh cloudkitty-k8s --path ./cloudkitty-k8s_amd64.charm 
+```
 
 When trying to run your charm, you may get an error about using ubuntu 20.04. This looks to be a bug, and you can work around it with:-
 
