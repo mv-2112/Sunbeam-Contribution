@@ -3,7 +3,7 @@ Notes on how to setup a machine and contribute to the Sunbeam project
 
 ## Setup
 
-### Fresh ubuntu imstall
+### Fresh ubuntu install
 
 ```bash
 lxd init --auto
