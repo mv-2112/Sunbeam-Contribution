@@ -129,6 +129,16 @@ ROCK_VERSION=$(yq ".version" ./rockcraft.yaml)
 skopeo copy oci-archive:${ROCK_ARCHIVE} docker://verranm/${ROCK_NAME}:${ROCK_VERSION}
 ```
 
+If your Rock contains a dashboard, you need to consider if it functions without that service (i.e. Horizon will get deployed with it regardless of if the service you are adding is enabled). It is likely a better plan to add it to the ```override-stage``` of the Horizon ```rockcraft.yaml``` file.
+
+You can obtain the files for the dashboard with the following:-
+
+```bash
+curl -skL $(apt-get download -o Dir::Cache::archives="./" --print-uris python3-cloudkitty-dashboard/noble | awk -F\' '{print $2}' ) | dpkg-deb -c /dev/stdin | grep "openstack_dashboard" | grep -v "^d" | awk '{ print $6 }' | xargs -I{} basename {}
+```
+
+
+
 ## Charms 
 
 https://opendev.org/openstack/sunbeam-charms
