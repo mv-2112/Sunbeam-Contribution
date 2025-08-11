@@ -151,5 +151,11 @@ Once your pull request is accepted you can watch it build here: https://github.c
 
 https://opendev.org/openstack/sunbeam-charms
 
+# Required for Juju to provide storage volumes
+sudo microk8s enable hostpath-storage
+# Required to host the OCI image of the application
+sudo microk8s enable registry
+# Required to expose the application
+sudo microk8s enable ingress
 
 
