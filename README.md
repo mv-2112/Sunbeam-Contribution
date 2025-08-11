@@ -3,6 +3,14 @@ Notes on how to setup a machine and contribute to the Sunbeam project
 
 ## Setup
 
+### User housekeeping
+
+You will need:-
+- github.com account
+- launchpad account
+- to sign the CLA https://ubuntu.com/legal/contributors#sign-the-contributor-agreement
+
+
 ### Fresh ubuntu install
 
 ```bash
