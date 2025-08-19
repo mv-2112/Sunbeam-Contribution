@@ -146,6 +146,8 @@ curl -skL $(apt-get download -o Dir::Cache::archives="./" --print-uris python3-c
 ```
 Once your pull request is accepted you can watch it build here: https://github.com/canonical/ubuntu-openstack-rocks/actions
 
+Once the build completes, you can check on your container here https://github.com/canonical/ubuntu-openstack-rocks/pkgs/container/cloudkitty-consolidated
+
 
 ## Charms 
 
