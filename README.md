@@ -158,7 +158,24 @@ sudo microk8s enable hostpath-storage
 sudo microk8s enable registry
 # Required to expose the application
 sudo microk8s enable ingress
+# Required when setting up new charm
+sudo snap install astral-uv --classic
 ```
+
+Create your new directory (or ```charmcraft init```?), you may need to run ```uv lock``` / ```uv sync``` to create uv.lock file - ```charmcraft pack``` will output something similar to:
+
+```bash
+$ charmcraft build
+'override-build' in part 'charm' failed with code 2.
+Detailed information: 
+:: + uv export --frozen --no-hashes --format=requirements-txt -o requirements.txt
+:: error: Unable to find lockfile at `uv.lock`. To create a lockfile, run `uv lock` or `uv sync`.
+Recommended resolution: Review the scriptlet and make sure it's correct.
+For more information, check out: https://canonical-charmcraft.readthedocs-hosted.com/en/3.5.3/reference/plugins/
+Failed to execute charmcraft in instance.
+Full execution log: '/home/verranm/.local/state/charmcraft/log/charmcraft-20250819-222119.057026.log'
+```
+
 
 
 ```bash
