@@ -9,6 +9,7 @@ You will need:-
 - github.com account
 - launchpad account
 - to sign the CLA https://ubuntu.com/legal/contributors#sign-the-contributor-agreement
+- Set yourself up with your Launchpad account at opendev.org https://docs.openstack.org/contributors/en_GB/common/setup-gerrit.html
 
 
 ### Fresh ubuntu install
@@ -197,3 +198,23 @@ juju model-config default-base="ubuntu@24.04/stable"
 ```
 
 When finished, or if you need to teardown, run```juju remove-application cloudkitty```
+
+Committing charms is a little different to Rocks or Sunbeam itself. 
+
+Install git-review if you haven't already, refer to earlier steps to ensure your ssh key is uploaded to opendev already
+
+```bash
+sudo apt install git-review
+git review -s
+git config --global gitreview.username <gitname>
+
+```
+
+Once your changes are ready, 
+
+```
+git commit -Ss -m "YOUR COMMIT MESSAGE HERE"
+git review
+```
+
+Assuming all goes well, you can then see your commit at https://review.opendev.org/q/status:open+project:openstack/sunbeam-charms
