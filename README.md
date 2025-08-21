@@ -210,7 +210,11 @@ git config --global gitreview.username <gitname>
 
 ```
 
-Once your changes are ready, 
+Once your changes are ready, first test your changes:-
+
+```
+tox -e py3 -- cloudkitty-k8s
+```
 
 ```
 git commit -Ss -m "YOUR COMMIT MESSAGE HERE"
