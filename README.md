@@ -16,9 +16,9 @@ You will need:-
 
 ```bash
 sudo snap install lxd 
-lxd init --auto
+sudo lxd init --auto
 
-LATEST_STRICT_MICROK8S=$(snap info microk8s | grep strict | grep -v tracking | head -1 | awk '{ print $1 }')
+LATEST_STRICT_MICROK8S=$(snap info microk8s | grep strict | grep -v tracking | head -1 | awk '{ print $1 }'| sed 's/:$//')
 snap install microk8s --channel $LATEST_STRICT_MICROK8S
 
 sudo usermod -a -G snap_microk8s $USER
@@ -29,6 +29,7 @@ microk8s status (should be running)
 microk8s kubectl get pods -A (calico and coredns should be running ok)
 
 sudo microk8s enable hostpath-storage
+snap install juju
 juju bootstrap microk8s
 ```
 
@@ -57,7 +58,10 @@ newgrp docker
 
 ### Git setup
 
-```git config -l```
+```bash
+sudo apt install git
+git config -l
+```
 
 Ensure you setup your user email and name:-
 
