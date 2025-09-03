@@ -14,10 +14,15 @@ You will need:-
 
 ### Fresh ubuntu install
 
+Setup LXD
 ```bash
 sudo snap install lxd 
 sudo lxd init --auto
-
+getent group lxd | grep -qwF "$USER" || sudo usermod -aG lxd "$USER"
+newgrp lxd
+```
+Setup Microk8s
+```bash
 LATEST_STRICT_MICROK8S=$(snap info microk8s | grep strict | grep -v tracking | head -1 | awk '{ print $1 }'| sed 's/:$//')
 snap install microk8s --channel $LATEST_STRICT_MICROK8S
 
