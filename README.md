@@ -69,6 +69,11 @@ Ensure you setup your user email and name:-
 user.email=someone@somewhere.com
 user.name=Some Body
 ```
+Add them if not set
+```
+git config set --global user.email "someone@somewhere.com"
+git config set --global user.name "Some Body"
+```
 
 Additionally we need to add some settings for gpg signing. If you don't already have a gpg key, set one up as per https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
 
