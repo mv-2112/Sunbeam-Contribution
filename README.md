@@ -15,6 +15,7 @@ You will need:-
 ### Fresh ubuntu install
 
 ```bash
+sudo snap install lxd 
 lxd init --auto
 
 LATEST_STRICT_MICROK8S=$(snap info microk8s | grep strict | grep -v tracking | head -1 | awk '{ print $1 }')
