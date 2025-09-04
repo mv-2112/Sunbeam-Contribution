@@ -199,7 +199,16 @@ Full execution log: '/home/verranm/.local/state/charmcraft/log/charmcraft-202508
 ```bash
 juju deploy ./cloudkitty-k8s_amd64.charm  cloudkitty --trust --resource cloudkitty-api-image=ghcr.io/canonical/cloudkitty-api:2025.1 --resource cloudkitty-processor-image=ghcr.io/canonical/cloudkitty-processor:2025.1
 ```
-You can now run your charm and debug. Make changes, rerun ```charmcraft pack``` as needed and refresh with:
+You can now run your charm and debug. Make changes, and test them with ```tox -e py3 -- cloudkitty-k8s```. One common problemi have hit myself is around check_file and self.container_calls.execute functions from ops_sunbeam, and however much you check and change all appears correct. The reason is that not all mandatory relations have added - especially ingress-internal - so db_sync won't execute. The line to add in my case was 
+
+```python
+test_utils.add_all_relations(self.harness)
+test_utils.add_complete_ingress_relation(self.harness)
+```
+
+Remember to run ```tox -e fmt``` to ensure style and formatting guidelines are adhered to and corrected.
+
+Once you are happy, rerun ```charmcraft pack``` as needed and refresh with:
 
 ```bash
 juju refresh cloudkitty --path ./cloudkitty-k8s_amd64.charm 
