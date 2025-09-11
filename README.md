@@ -246,3 +246,15 @@ git review
 ```
 
 Assuming all goes well, you can then see your commit at https://review.opendev.org/q/status:open+project:openstack/sunbeam-charms
+
+
+## Terraform
+
+You can view a complete sample of whats required for the terraform stages here: https://github.com/canonical/sunbeam-terraform/pull/114/files
+
+
+## Adding your new feature to Sunbeam
+
+As examples, you can follow these examples:
+- https://github.com/canonical/snap-openstack/blob/main/sunbeam-python/sunbeam/features/loadbalancer/feature.py
+- https://github.com/canonical/snap-openstack/blob/main/sunbeam-python/sunbeam/features/secrets/feature.py
