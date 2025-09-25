@@ -180,11 +180,7 @@ sudo microk8s enable ingress
 sudo snap install astral-uv --classic
 ```
 
-Create your new directory (or ```charmcraft init```?), you may need to run ```uv lock``` / ```uv sync``` to create uv.lock file - ```charmcraft pack``` will output something similar to:
-
-```bash
-tox -e build -- cloudkitty-k8s
-```
+Create your new directory (or ```charmcraft init```?), clone some files from a similar-ish charm. ```tox -e build -- cloudkitty-k8s``` should be used instead of ```charmcraft pack``` as theres a lot of magic to quote the battle hardened heroes in the project!
 
 ```bash
 juju deploy ./cloudkitty-k8s_amd64.charm  cloudkitty --trust --resource cloudkitty-api-image=ghcr.io/canonical/cloudkitty-api:2025.1 --resource cloudkitty-processor-image=ghcr.io/canonical/cloudkitty-processor:2025.1
